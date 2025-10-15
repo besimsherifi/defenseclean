@@ -1,3 +1,4 @@
+import { Link, useNavigate } from 'react-router-dom';
 import image from '../../assets/test-min.jpg';
 import Banner from '../../Components/Banner';
 import WhoWeAre from '../../Components/WhoAreWe';
@@ -5,6 +6,9 @@ import WhyChooseUs from '../../Components/WhyChooseUS';
 import SplitServices from '../Home/SplitServices';
 
 export default function Home() {
+
+    const navigate = useNavigate();
+
     return (
         <>
             <section className="relative grid lg:grid-cols-2 gap-8 lg:gap-0 overflow-hidden bg-white py-10 md:py-14 lg:py-0 lg:min-h-[75vh]">
@@ -24,12 +28,16 @@ export default function Home() {
                     </p>
 
                     <div className="mt-6 flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
-                        <button className="bg-black text-white px-5 py-3 rounded-md text-sm sm:text-base">
-                            Book an Appointment
-                        </button>
-                        <button className="border border-[#0076b4] text-black px-5 py-3 rounded-md hover:bg-[#0076b4] hover:text-white text-sm sm:text-base">
-                            Our Services
-                        </button>
+                        <Link to="/contact-us">
+                            <button className="bg-black text-white px-5 py-3 rounded-md text-sm sm:text-base">
+                                Book an Appointment
+                            </button>
+                        </Link>
+                        <Link to="/services">
+                            <button className="border border-[#0076b4] text-black px-5 py-3 rounded-md hover:bg-[#0076b4] hover:text-white text-sm sm:text-base">
+                                Our Services
+                            </button>
+                        </Link>
                     </div>
                 </div>
 
@@ -61,7 +69,7 @@ export default function Home() {
                     titlePrimary="Ready for a"
                     titleEmphasis="Spotless Space?"
                     ctaText="Book a Visit Now"
-                    onCtaClick={() => console.log('Book clicked')}
+                    onCtaClick={() => navigate("/contact-us")}
                     imageSrc={require('../../assets/banner-image-min.png')}
                     imageAlt="Cleaner with gloves"
                 />
